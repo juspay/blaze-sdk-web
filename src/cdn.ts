@@ -22,6 +22,10 @@ function process(payload: RecordOrString): void {
   BlazeSDK.process(processPayload);
 }
 
+function terminate(): void {
+  BlazeSDK.terminate();
+}
+
 function safeParseJson(payload: string): Record<string, unknown> {
   try {
     return JSON.parse(payload);
@@ -33,7 +37,8 @@ function safeParseJson(payload: string): Record<string, unknown> {
 function injectMethods(): void {
   window.BlazeSDKWeb = {
     initiate,
-    process
+    process,
+    terminate
   };
 }
 
