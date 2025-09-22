@@ -40,7 +40,7 @@ function initiate(
     }
 
     script.setAttribute('data-environment', environment);
-    script.setAttribute("data-disable-overlay-events", "true");
+    script.setAttribute('data-disable-overlay-events', 'true');
     script.onload = () => {
       try {
         const hiddenElement = document.createElement('breeze-button');
