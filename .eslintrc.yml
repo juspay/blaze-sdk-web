@@ -22,3 +22,9 @@ rules:
     - type
   '@typescript-eslint/dot-notation': 'off'
   '@typescript-eslint/no-extraneous-class': 'off'
+  '@typescript-eslint/quotes':
+    - error
+    - single
+  'quotes':
+    - error
+    - single

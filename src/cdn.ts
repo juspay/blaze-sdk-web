@@ -6,14 +6,30 @@ type RecordOrString = Record<string, unknown> | string;
 function initiate(payload: RecordOrString, callbackFn: CallbackFn | null): void {
   const initiatePayload: Record<string, unknown> =
     typeof payload === 'string' ? safeParseJson(payload) : payload;
-  const _callbackFn: CallbackFn =
+
+  const _callbackFn: CallbackFn | null =
     typeof callbackFn === 'function'
       ? callbackFn
       : typeof window.blazeCallback === 'function'
         ? window.blazeCallback
-        : () => {};
+        : null;
 
-  BlazeSDK.initiate(initiatePayload, _callbackFn);
+  if (typeof _callbackFn === 'function') {
+    BlazeSDK.initiate(initiatePayload, _callbackFn);
+  } else {
+    let readCount = 0;
+
+    const intervalId = setInterval(() => {
+      readCount++;
+      if (typeof window.blazeCallback === 'function') {
+        clearInterval(intervalId);
+        BlazeSDK.initiate(initiatePayload, window.blazeCallback);
+      }
+      if (readCount > 10) {
+        clearInterval(intervalId);
+      }
+    }, 100);
+  }
 }
 
 function process(payload: RecordOrString): void {
