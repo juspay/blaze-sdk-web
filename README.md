@@ -97,6 +97,17 @@ let processSDKPayload = {
 
 Call the process method on the Blaze instance with the process payload to start the user journey or a headless flow.
 
-```kotlin
+```javascript
 BlazeSDK.process(processSDKPayload)
 ```
+
+## Backend SDK Integration
+
+For server-side integration using Node.js, please refer to the [Backend SDK Documentation](./BACKEND_README.md).
+
+The Backend SDK is designed for server-to-server communication and includes features like:
+- Secure authentication with auth tokens
+- Server-side payment initiation
+- Direct API communication with Breeze platform
+
+[View Backend SDK Documentation →](./BACKEND_README.md)
