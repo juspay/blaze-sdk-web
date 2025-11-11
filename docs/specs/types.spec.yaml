@@ -1,0 +1,67 @@
+# Base Type Specification for Blaze SDK
+# This file defines base types used across the Blaze SDK
+
+info:
+  version: 0.1.0
+  title: Blaze SDK Base Types
+
+groupedTypes:
+  Backend:
+    $ref: './docs/specs/backend.yaml#/Backend'
+
+types:
+  Environment:
+    type: string
+    enum:
+      - beta
+      - release
+      - smbBeta
+      - smbRelease
+    description: Available environments for the Blaze SDK
+
+  SDKPayload:
+    type: object
+    properties:
+      requestId:
+        type: string
+        description: Unique request identifier
+      service:
+        type: string
+        description: Service identifier
+      environment:
+        $ref: '#/types/Environment'
+        description: Environment
+      payload:
+        type: object
+        additionalProperties: true
+        description: Flexible payload for any SDK operation
+    required:
+      - requestId
+      - service
+      - payload
+
+  EventName:
+    type: string
+    enum:
+      - initiate
+      - process
+      - terminate
+    description: SDK event lifecycle stages
+
+  SDKResponse:
+    type: object
+    properties:
+      requestId:
+        type: string
+        description: Request identifier
+      service:
+        type: string
+        description: Service identifier
+      payload:
+        type: object
+        additionalProperties: true
+        description: Response payload
+    required:
+      - requestId
+      - service
+      - payload

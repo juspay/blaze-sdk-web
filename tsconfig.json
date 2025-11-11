@@ -28,7 +28,8 @@
 
     "paths": {
       "$generated": ["./src/generated"],
-      "$generated/*": ["./src/generated/*"]
+      "$generated/*": ["./src/generated/*"],
+      "$types": ["./src/types"]
     }
   },
   "exclude": ["./dist", "examples"]

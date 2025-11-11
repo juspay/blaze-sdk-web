@@ -1,0 +1,63 @@
+Backend:
+  ActionEnum:
+    type: string
+    enum:
+      - initiatePayments
+    description: Action type
+
+  InitiatePayloadData:
+    type: object
+    properties:
+      merchantId:
+        type: string
+        description: Merchant identifier
+      shopUrl:
+        type: string
+        description: Shop URL
+      authToken:
+        type: string
+        description: Authentication token
+    required:
+      - merchantId
+      - shopUrl
+      - authToken
+
+  InitiatePaymentsPayload:
+    type: object
+    properties:
+      cart:
+        type: object
+        additionalProperties: true
+        description: Cart information
+      customer:
+        type: object
+        additionalProperties: true
+        description: Customer information
+      address:
+        type: object
+        additionalProperties: true
+        description: Address information
+    required:
+      - cart
+
+  GeneratePaymentLinkResponse:
+    type: object
+    properties:
+      redirectionUrl:
+        type: string
+        description: URL to redirect user for payment
+    required:
+      - redirectionUrl
+
+  ErrorResponse:
+    type: object
+    properties:
+      status:
+        type: string
+        description: Error status
+      message:
+        type: string
+        description: Error message
+    required:
+      - status
+      - message

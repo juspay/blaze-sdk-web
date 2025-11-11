@@ -18,9 +18,6 @@ processArguments.forEach((arg) => {
   }
 });
 
-const inputFile = buildTarget === 'cdn' ? './src/cdn.ts' : './src/index.ts';
-const outputFile = buildTarget === 'cdn' ? 'dist/cdn.js' : 'dist/index.js';
-
 const plugins = [
   nodeResolve(),
   commonjs({
@@ -32,27 +29,57 @@ const plugins = [
   terser()
 ];
 
-if (devMode) {
-  plugins.push(
-    serve({
-      port: 9200,
-      contentBase: ['dist']
-    })
-  );
-}
-
 function config() {
-  return [
-    {
-      input: inputFile,
+  const configs = [];
+
+  if (buildTarget === 'cdn') {
+    // CDN build
+    if (devMode) {
+      plugins.push(
+        serve({
+          port: 9200,
+          contentBase: ['dist']
+        })
+      );
+    }
+
+    configs.push({
+      input: './src/cdn.ts',
       output: {
-        file: outputFile,
+        file: 'dist/cdn.js',
         format: 'esm',
         sourcemap: false
       },
       plugins
-    }
-  ];
+    });
+  } else {
+    // Node package build - build both frontend and backend
+    configs.push(
+      // Frontend SDK
+      {
+        input: './src/index.ts',
+        output: {
+          file: 'dist/index.js',
+          format: 'esm',
+          sourcemap: false
+        },
+        plugins
+      },
+      // Backend SDK
+      {
+        input: './src/backend/index.ts',
+        output: {
+          file: 'dist/backend.js',
+          format: 'esm',
+          sourcemap: false
+        },
+        plugins,
+        external: [] // No externals needed as fetch is built-in to Node 18+
+      }
+    );
+  }
+
+  return configs;
 }
 
 export default config;

@@ -28,8 +28,14 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.js"
+    },
+    "./backend": {
+      "types": "./dist/backend/index.d.ts",
+      "import": "./dist/backend.js",
+      "require": "./dist/backend.js"
     }
   },
   "scripts": {
@@ -43,7 +49,8 @@
     "format:generated": "prettier --write ./src/generated/*",
     "lint": "eslint . --ext .ts",
     "lint:all": "eslint . --ext .ts",
-    "generate:doc": "npx typedoc src/index.ts"
+    "generate:doc": "npx typedoc src/index.ts",
+    "generate:types": "npx type-crafter generate typescript-with-decoders ./docs/specs/types.spec.yaml  ./src/generated SingleFile && pnpm run format:generated"
   },
   "author": "",
   "license": "ISC",
@@ -55,6 +62,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@types/node": "^24.10.1",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "bun": "^1.2.22",
@@ -70,6 +78,7 @@
     "rollup": "^4.52.0",
     "rollup-plugin-server": "^0.7.0",
     "tslib": "^2.8.1",
+    "type-crafter": "^0.11.2",
     "typedoc": "^0.28.13",
     "typescript": "^5.2.2"
   },
@@ -166,5 +175,9 @@
     "replaceText": {
       "(ABC-\\d+)": "[`$1`](https://juspay.atlassian.net/browse/$1)"
     }
+  },
+  "dependencies": {
+    "type-decoder": "^2.1.0",
+    "typesafe-api-call": "^5.1.1"
   }
 }
