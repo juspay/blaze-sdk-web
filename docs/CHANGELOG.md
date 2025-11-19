@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.0.2)
+## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.1)
 
-- add support for reading callback from window.blazeCallback
-- added linting and fixed linting issues
-- added ci flow for deploying
+- Added Backend SDK support for server-side payment integration
+- Type-crafter added to generate backend types
+- Updated package.json to export ./backend
+- Refactored Rollup build for multiple entry points
+- Updated README with backend integration guide
+
+- BZ-46061: feat: Add Backend SDK for server-side payment integrations ([](https://juspay.atlassian.net/browse/BZ-46061))
+
+## [0.5.1](https://github.com/juspay/blaze-sdk-web/compare/0.5.1..0.0.2) - 2025-09-22
 
 - BZ-44387: feat: added callback loading from window in cdn ([](https://juspay.atlassian.net/browse/BZ-44387))
 - BZ-39631: feat: Expose terminate via CDN sdk ([](https://juspay.atlassian.net/browse/BZ-39631))
@@ -25,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - BZ-35506: fix: reader for environment in init payload ([](https://juspay.atlassian.net/browse/BZ-35506))
 - Build(deps): bump nanoid in /examples/blaze-sdk-web-example ([e93e46d](https://github.com/juspay/blaze-sdk-web/commit/e93e46db91e676ca0cc80b64fe4876adfbb7189b))
 - Build(deps-dev): bump bun from 1.1.7 to 1.1.30 ([1f19e82](https://github.com/juspay/blaze-sdk-web/commit/1f19e82c2a0031e7d972a6874266f3afb9ba1886))
+- chore(release): 0.5.1 ([2f68e47](https://github.com/juspay/blaze-sdk-web/commit/2f68e472b446f4e8802b3f5f88a7dc107189b5ff))
 - Build(deps): bump micromatch from 4.0.5 to 4.0.8 ([8ec352a](https://github.com/juspay/blaze-sdk-web/commit/8ec352a5c294c6b160b4a58d68e6ae76bbe3274c))
 - Build(deps): bump cross-spawn from 7.0.3 to 7.0.6 ([43aef9d](https://github.com/juspay/blaze-sdk-web/commit/43aef9daf5ec282e94ab1ae3d229f5d60c7ab3ad))
 
