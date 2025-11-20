@@ -11,7 +11,6 @@ function initiate(
 ): void {
   try {
     const script: HTMLScriptElement = document.createElement('script');
-    script.src = 'https://sdk.breeze.in/electron/196.0.0/index.js';
     script.type = 'module';
     script.id = 'breeze-script-tag';
     script.async = true;
@@ -24,8 +23,22 @@ function initiate(
     const merchantId = typeof payloadData.merchantId === 'string' ? payloadData.merchantId : null;
     const shopUrl = typeof payloadData.shopUrl === 'string' ? payloadData.shopUrl : null;
     const shopId = typeof payloadData.shopId === 'string' ? payloadData.shopId : null;
-    const environment =
-      typeof payloadData.environment === 'string' ? payloadData.environment : 'production';
+
+    let environment: string;
+    let scriptSrc: string;
+
+    switch (payloadData.environment) {
+      case 'smbBeta':
+      case 'smbRelease':
+        scriptSrc = 'https://sdk.breezesdk.store/electron/217.0.0/index.js';
+        environment = payloadData.environment === 'smbBeta' ? 'beta' : 'release';
+        break;
+      default:
+        scriptSrc = 'https://sdk.breeze.in/electron/196.0.0/index.js';
+        environment = payloadData.environment === 'beta' ? 'beta' : 'release';
+        break;
+    }
+    script.src = scriptSrc;
 
     if (merchantId !== null) {
       script.setAttribute('data-merchantid', merchantId);
