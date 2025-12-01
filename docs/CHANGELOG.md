@@ -7,15 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.1)
+## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.2)
 
-- Added Backend SDK support for server-side payment integration
-- Type-crafter added to generate backend types
-- Updated package.json to export ./backend
-- Refactored Rollup build for multiple entry points
-- Updated README with backend integration guide
+- extended env based app endpoints
+
+- BZ-46552: feat: increase support for app endpoints ([](https://juspay.atlassian.net/browse/BZ-46552))
+
+## [0.5.2](https://github.com/juspay/blaze-sdk-web/compare/0.5.2..0.5.1) - 2025-11-19
 
 - BZ-46061: feat: Add Backend SDK for server-side payment integrations ([](https://juspay.atlassian.net/browse/BZ-46061))
+- chore(release): 0.5.2 ([514cf1a](https://github.com/juspay/blaze-sdk-web/commit/514cf1a77098292d15be95fcdc67355e67b42042))
 
 ## [0.5.1](https://github.com/juspay/blaze-sdk-web/compare/0.5.1..0.0.2) - 2025-09-22
 
