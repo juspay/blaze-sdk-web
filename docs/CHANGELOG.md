@@ -7,11 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.2)
+## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.3)
 
-- extended env based app endpoints
+- added support to pass platform in initiate payload
+- update eslint + commitlint config
+- upgraded dependencies to latest versions
+- dropped github releases from release workflow
+- upgraded core sdk to 226.0.0
+
+- BZ-48611: feat: based sdk update & platorm key support ([](https://juspay.atlassian.net/browse/BZ-48611))
+
+## [0.5.3](https://github.com/juspay/blaze-sdk-web/compare/0.5.3..0.5.2) - 2025-12-01
 
 - BZ-46552: feat: increase support for app endpoints ([](https://juspay.atlassian.net/browse/BZ-46552))
+- chore(release): 0.5.3 ([33f7758](https://github.com/juspay/blaze-sdk-web/commit/33f7758c4ebd467d96bba9918ca97d02bed0b7bf))
 
 ## [0.5.2](https://github.com/juspay/blaze-sdk-web/compare/0.5.2..0.5.1) - 2025-11-19
 
