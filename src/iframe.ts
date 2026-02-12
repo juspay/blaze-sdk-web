@@ -23,6 +23,7 @@ function initiate(
     const merchantId = typeof payloadData.merchantId === 'string' ? payloadData.merchantId : null;
     const shopUrl = typeof payloadData.shopUrl === 'string' ? payloadData.shopUrl : null;
     const shopId = typeof payloadData.shopId === 'string' ? payloadData.shopId : null;
+    const platform = typeof payloadData.platform === 'string' ? payloadData.platform : null;
 
     let environment: string;
     let scriptSrc: string;
@@ -30,15 +31,16 @@ function initiate(
     switch (payloadData.environment) {
       case 'smbBeta':
       case 'smbRelease':
-        scriptSrc = 'https://sdk.breezesdk.store/electron/217.0.0/index.js';
+        scriptSrc = 'https://sdk.breezesdk.store/electron/226.0.0/index.js';
         environment = payloadData.environment === 'smbBeta' ? 'beta' : 'release';
         break;
       default:
-        scriptSrc = 'https://sdk.breeze.in/electron/196.0.0/index.js';
+        scriptSrc = 'https://sdk.breeze.in/electron/226.0.0/index.js';
         environment = payloadData.environment === 'beta' ? 'beta' : 'release';
         break;
     }
     script.src = scriptSrc;
+
 
     if (merchantId !== null) {
       script.setAttribute('data-merchantid', merchantId);
@@ -50,6 +52,10 @@ function initiate(
 
     if (shopId !== null) {
       script.setAttribute('data-shopid', shopId);
+    }
+
+    if (platform !== null) {
+      script.setAttribute('data-platform', platform);
     }
 
     script.setAttribute('data-environment', environment);
@@ -68,7 +74,7 @@ function initiate(
     container = containerLayout;
 
     document.body.appendChild(script);
-  } catch (e) {}
+  } catch {}
 }
 
 function process(payload: Record<string, unknown>): void {

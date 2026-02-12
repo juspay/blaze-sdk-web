@@ -33,17 +33,17 @@ import BlazeSDK from '@juspay/blaze-sdk-web';
 Create a Json with correct parameters to initiate the SDK. This is the data that will be used to initialize the SDK.
 
 ```javascript
-  const initiatePayload = {
-    merchantId: '<merchant-id-shared-by-breeze>',
-    shopUrl: '<shop-url>',
-    environment: 'production'
-  };
+const initiatePayload = {
+  merchantId: '<merchant-id-shared-by-breeze>',
+  shopUrl: '<shop-url>',
+  environment: 'production'
+};
 
-  const initSDKPayload = {
-    requestId: '<unique_request_id>',
-    service: 'in.breeze.onecco',
-    payload: initiatePayload
-  }
+const initSDKPayload = {
+  requestId: '<unique_request_id>',
+  service: 'in.breeze.onecco',
+  payload: initiatePayload
+};
 ```
 
 #### 2.2.2: Construct the Callback Method
@@ -80,16 +80,15 @@ Refer to schemas sections to understand what kind of data is required for differ
 // 3.1 Create SDK Process Payload
 // Create a JSONObject for the Process data
 let processPayload = {
-  "action": "<ACTION>",
+  action: '<ACTION>'
   // and more parameters required as per the action
 };
-
 
 // Place Process Payload into SDK Payload
 let processSDKPayload = {
   requestId: '<unique_request_id>',
   service: 'in.breeze.onecco',
-  "payload": processPayload
+  payload: processPayload
 };
 ```
 

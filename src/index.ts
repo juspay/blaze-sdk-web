@@ -13,7 +13,11 @@ class BlazeSDK {
    * @param containerLayout {HTMLDivElement | null} - Optional parameter to specify the container layout for Blaze SDK.
    * @returns void
    */
-  static initiate(payload: Record<string, unknown>, callbackFn: CallbackFn, containerLayout: HTMLDivElement | null = null): void {
+  static initiate(
+    payload: Record<string, unknown>,
+    callbackFn: CallbackFn,
+    containerLayout: HTMLDivElement | null = null
+  ): void {
     this.callback = callbackFn;
     this.initiatePayload = payload;
     BlazeIframe.initiate(payload, callbackFn, containerLayout);
