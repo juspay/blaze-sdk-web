@@ -218,23 +218,3 @@ jobs:
             ls -la
             exit 1
           fi
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        id: create_release
-        with:
-          tag_name: ${{ steps.version-bump.outputs.new_version }}
-          name: Release ${{ steps.version-bump.outputs.new_version }}
-          body: |
-            ## What's Changed
-
-            See [CHANGELOG.md](https://github.com/juspay/blaze-sdk-web/blob/release/docs/CHANGELOG.md) for detailed changes.
-
-            **Full Changelog**: https://github.com/juspay/blaze-sdk-web/compare/${{ steps.version-bump.outputs.previous_version }}...${{ steps.version-bump.outputs.new_version }}
-          draft: false
-          prerelease: false
-          files: |
-            dist/**
-          fail_on_unmatched_files: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

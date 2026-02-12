@@ -45,7 +45,7 @@ function terminate(): void {
 function safeParseJson(payload: string): Record<string, unknown> {
   try {
     return JSON.parse(payload);
-  } catch (e) {
+  } catch {
     return {};
   }
 }
