@@ -9,13 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.3)
 
-- fix ci triggers for release
+- added github release notes to release workflow
+- updated pnpm
 
+- BZN-49110: ci: add github release notes & pnpm bump ([](https://juspay.atlassian.net/browse/BZN-49110))
 - BZN-49109: ci: fix release triggers ([](https://juspay.atlassian.net/browse/BZN-49109))
 - BZN-49108: feat: enhance terminate call ([](https://juspay.atlassian.net/browse/BZN-49108))
 - BZ-48611: feat: based sdk update & platorm key support ([](https://juspay.atlassian.net/browse/BZ-48611))
 - chore(release): 0.5.4 ([1404006](https://github.com/juspay/blaze-sdk-web/commit/1404006bcc885dec893af82c83f9eebc30ef5533))
 - chore(release): 0.5.6 ([f9b9768](https://github.com/juspay/blaze-sdk-web/commit/f9b9768e3d72dbe01a48bd3a5fec2cafc4c8afd4))
+- chore(release): 0.5.7 ([9b0b220](https://github.com/juspay/blaze-sdk-web/commit/9b0b22083fb824aeb71d07f66331d6e49b1aafb5))
 
 ## [0.5.3](https://github.com/juspay/blaze-sdk-web/compare/0.5.3..0.5.2) - 2025-12-01
 
