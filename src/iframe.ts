@@ -88,6 +88,22 @@ function terminate(): void {
   if (typeof window.BlazeSDK === 'object' && typeof window.BlazeSDK.terminate === 'function') {
     window.BlazeSDK.terminate();
   }
+
+  const script = document.getElementById('breeze-script-tag');
+  if (script) {
+    script.remove();
+  }
+
+  const breezeButton = document.querySelector('breeze-button');
+  if (breezeButton) {
+    breezeButton.remove();
+  }
+
+  delete window.BlazeSDK;
+
+  initiateQueue = [];
+  processQueue = [];
+  container = null;
 }
 
 function drainQueue(callbackFn: CallbackFn): boolean {
