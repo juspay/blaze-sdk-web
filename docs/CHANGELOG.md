@@ -9,11 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.3)
 
-- terminate call now delete script, frame & queues
+- fix ci triggers for release
 
+- BZN-49109: ci: fix release triggers ([](https://juspay.atlassian.net/browse/BZN-49109))
 - BZN-49108: feat: enhance terminate call ([](https://juspay.atlassian.net/browse/BZN-49108))
 - BZ-48611: feat: based sdk update & platorm key support ([](https://juspay.atlassian.net/browse/BZ-48611))
 - chore(release): 0.5.4 ([1404006](https://github.com/juspay/blaze-sdk-web/commit/1404006bcc885dec893af82c83f9eebc30ef5533))
+- chore(release): 0.5.6 ([f9b9768](https://github.com/juspay/blaze-sdk-web/commit/f9b9768e3d72dbe01a48bd3a5fec2cafc4c8afd4))
 
 ## [0.5.3](https://github.com/juspay/blaze-sdk-web/compare/0.5.3..0.5.2) - 2025-12-01
 
