@@ -30,7 +30,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 10.18.3
 
       - name: Install dependencies
         run: pnpm install
@@ -146,6 +146,22 @@ jobs:
           git push origin release
 
           echo "Successfully pushed changes for version ${{ steps.version-bump.outputs.new_version }}"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version-bump.outputs.new_version }}
+          name: Release ${{ steps.version-bump.outputs.new_version }}
+          body: |
+            ## What's Changed
+
+            See [CHANGELOG.md](https://github.com/juspay/blaze-sdk-web/blob/release/docs/CHANGELOG.md) for detailed changes.
+
+            **Full Changelog**: https://github.com/juspay/blaze-sdk-web/commits/release
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to NPM
         env:
