@@ -3,6 +3,7 @@ import type { CallbackFn } from './types';
 let initiateQueue: Array<Record<string, unknown>> = [];
 let processQueue: Array<Record<string, unknown>> = [];
 let container: HTMLDivElement | null = null;
+let isScriptLoaded = false;
 
 function initiate(
   payload: Record<string, unknown>,
@@ -10,7 +11,11 @@ function initiate(
   containerLayout: HTMLDivElement | null = null
 ): void {
   try {
-    const script: HTMLScriptElement = document.createElement('script');
+    const existingElement = document.getElementById('breeze-script-tag');
+    const script: HTMLScriptElement =
+      existingElement instanceof HTMLScriptElement
+        ? existingElement
+        : document.createElement('script');
     script.type = 'module';
     script.id = 'breeze-script-tag';
     script.async = true;
@@ -31,11 +36,11 @@ function initiate(
     switch (payloadData.environment) {
       case 'smbBeta':
       case 'smbRelease':
-        scriptSrc = 'https://sdk.breezesdk.store/electron/226.0.1/index.js';
+        scriptSrc = 'https://sdk.breezesdk.store/electron/232.0.0/index.js';
         environment = payloadData.environment === 'smbBeta' ? 'beta' : 'release';
         break;
       default:
-        scriptSrc = 'https://sdk.breeze.in/electron/226.0.1/index.js';
+        scriptSrc = 'https://sdk.breeze.in/electron/232.0.0/index.js';
         environment = payloadData.environment === 'beta' ? 'beta' : 'release';
         break;
     }
@@ -65,6 +70,7 @@ function initiate(
         hiddenElement.style.display = 'none';
         document.body.appendChild(hiddenElement);
         drainQueue(callbackFn);
+        isScriptLoaded = true;
       } catch (e) {
         console.error('Error creating Breeze button', e);
       }
@@ -72,7 +78,13 @@ function initiate(
 
     container = containerLayout;
 
-    document.body.appendChild(script);
+    if (isScriptLoaded) {
+      drainQueue(callbackFn);
+    }
+
+    if (!(existingElement instanceof HTMLScriptElement)) {
+      document.body.appendChild(script);
+    }
   } catch {}
 }
 
@@ -88,18 +100,6 @@ function terminate(): void {
   if (typeof window.BlazeSDK === 'object' && typeof window.BlazeSDK.terminate === 'function') {
     window.BlazeSDK.terminate();
   }
-
-  const script = document.getElementById('breeze-script-tag');
-  if (script) {
-    script.remove();
-  }
-
-  const breezeButton = document.querySelector('breeze-button');
-  if (breezeButton) {
-    breezeButton.remove();
-  }
-
-  delete window.BlazeSDK;
 
   initiateQueue = [];
   processQueue = [];
