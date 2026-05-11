@@ -7,12 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.8)
+## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.9)
 
-- resuing existing dom elements for frame
-- delegated all termination to core sdk
+Update electron SDK script source to v233.0.0 for both
+smb (beta/release) and default (beta/release) environments,
+upgrading from 217.0.0 and 196.0.0 respectively.
+
+- BZ-2923: chore: Bump Electron SDK to v233.0.0 ([](https://juspay.atlassian.net/browse/BZ-2923))
+
+## [0.5.9](https://github.com/juspay/blaze-sdk-web/compare/0.5.9..0.5.8) - 2026-03-31
 
 - BZN-49112: fix: multi initiate flow ([](https://juspay.atlassian.net/browse/BZN-49112))
+- chore(release): 0.5.9 ([a5fcfe5](https://github.com/juspay/blaze-sdk-web/commit/a5fcfe5a90b2a3673729d7081044294198924aeb))
 
 ## [0.5.8](https://github.com/juspay/blaze-sdk-web/compare/0.5.8..0.5.3) - 2026-03-30
 
