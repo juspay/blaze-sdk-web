@@ -7,13 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.9)
+## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.10)
 
-Update electron SDK script source to v233.0.0 for both
-smb (beta/release) and default (beta/release) environments,
-upgrading from 217.0.0 and 196.0.0 respectively.
+Bump atoms CDN version to 240.0.1 which includes the checkout
+navigation interceptor fix for bank redirect URLs in portal context.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) &lt;noreply@anthropic.com&gt;
+
+- BZ-2891: chore: bump electron version to 240.0.1 ([](https://juspay.atlassian.net/browse/BZ-2891))
+
+## [0.5.10](https://github.com/juspay/blaze-sdk-web/compare/0.5.10..0.5.9) - 2026-05-11
 
 - BZ-2923: chore: Bump Electron SDK to v233.0.0 ([](https://juspay.atlassian.net/browse/BZ-2923))
+- chore(release): 0.5.10 ([f2bac2c](https://github.com/juspay/blaze-sdk-web/commit/f2bac2cbb353fd8406967729cc4758c60e8a6dde))
 
 ## [0.5.9](https://github.com/juspay/blaze-sdk-web/compare/0.5.9..0.5.8) - 2026-03-31
 
