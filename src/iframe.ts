@@ -36,11 +36,11 @@ function initiate(
     switch (payloadData.environment) {
       case 'smbBeta':
       case 'smbRelease':
-        scriptSrc = 'https://sdk.breezesdk.store/electron/232.0.0/index.js';
+        scriptSrc = 'https://sdk.breezesdk.store/electron/241.0.3/index.js';
         environment = payloadData.environment === 'smbBeta' ? 'beta' : 'release';
         break;
       default:
-        scriptSrc = 'https://sdk.breeze.in/electron/232.0.0/index.js';
+        scriptSrc = 'https://sdk.breeze.in/electron/241.0.3/index.js';
         environment = payloadData.environment === 'beta' ? 'beta' : 'release';
         break;
     }
@@ -64,6 +64,7 @@ function initiate(
 
     script.setAttribute('data-environment', environment);
     script.setAttribute('data-disable-overlay-events', 'true');
+    script.setAttribute('data-app-version', 'v2');
     script.onload = () => {
       try {
         const hiddenElement = document.createElement('breeze-button');
