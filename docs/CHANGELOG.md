@@ -7,14 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.10)
+## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.11)
 
-Bump atoms CDN version to 240.0.1 which includes the checkout
-navigation interceptor fix for bank redirect URLs in portal context.
+- Bump electron version
+- add script tag to load nimble v2
 
-Co-Authored-By: Claude Opus 4.6 (1M context) &lt;noreply@anthropic.com&gt;
+- BZ-2923: feat: bump electron version and migrate to nimble v2 ([](https://juspay.atlassian.net/browse/BZ-2923))
+
+## [0.5.11](https://github.com/juspay/blaze-sdk-web/compare/0.5.11..0.5.10) - 2026-05-12
 
 - BZ-2891: chore: bump electron version to 240.0.1 ([](https://juspay.atlassian.net/browse/BZ-2891))
+- chore(release): 0.5.11 ([70f0c19](https://github.com/juspay/blaze-sdk-web/commit/70f0c19e76350c3192610e57934bb5e43057b817))
 
 ## [0.5.10](https://github.com/juspay/blaze-sdk-web/compare/0.5.10..0.5.9) - 2026-05-11
 
