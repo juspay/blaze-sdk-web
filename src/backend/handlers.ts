@@ -76,7 +76,8 @@ async function processInitiatePayments(
           ...(paymentsData.customer ?? {}),
           address: paymentsData.address ?? {}
         },
-        shopUrl: initiateData.shopUrl
+        shopUrl: initiateData.shopUrl,
+        additionalParams: paymentsData.additionalParams
       }),
       agent: networkOverrides?.proxyAgent
     };
