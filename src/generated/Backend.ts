@@ -1,4 +1,4 @@
-import { isJSON, decodeString } from 'type-decoder';
+import { isJSON, decodeString, decodeUnknown } from 'type-decoder';
 
 /**
  * @type { ActionEnum }
@@ -12,13 +12,6 @@ export function decodeActionEnum(rawInput: unknown): ActionEnum | null {
       return rawInput;
   }
   return null;
-}
-
-export function _decodeActionEnum(rawInput: unknown): ActionEnum | undefined {
-  switch (rawInput) {
-    case 'initiatePayments':
-      return rawInput;
-  }
 }
 
 /**
@@ -86,6 +79,12 @@ export type InitiatePaymentsPayload = {
    * @memberof InitiatePaymentsPayload
    */
   address: InitiatePaymentsPayloadAddress | null;
+  /**
+   * @description Additional parameters (e.g. subMerchantId) to pass along with the payment
+   * @type { InitiatePaymentsPayloadAdditionalParams }
+   * @memberof InitiatePaymentsPayload
+   */
+  additionalParams: InitiatePaymentsPayloadAdditionalParams | null;
 };
 
 export function decodeInitiatePaymentsPayload(rawInput: unknown): InitiatePaymentsPayload | null {
@@ -93,6 +92,9 @@ export function decodeInitiatePaymentsPayload(rawInput: unknown): InitiatePaymen
     const decodedCart = decodeInitiatePaymentsPayloadCart(rawInput['cart']);
     const decodedCustomer = decodeInitiatePaymentsPayloadCustomer(rawInput['customer']);
     const decodedAddress = decodeInitiatePaymentsPayloadAddress(rawInput['address']);
+    const decodedAdditionalParams = decodeInitiatePaymentsPayloadAdditionalParams(
+      rawInput['additionalParams']
+    );
 
     if (decodedCart === null) {
       return null;
@@ -101,7 +103,8 @@ export function decodeInitiatePaymentsPayload(rawInput: unknown): InitiatePaymen
     return {
       cart: decodedCart,
       customer: decodedCustomer,
-      address: decodedAddress
+      address: decodedAddress,
+      additionalParams: decodedAdditionalParams
     };
   }
   return null;
@@ -117,9 +120,12 @@ export function decodeInitiatePaymentsPayloadCart(
   rawInput: unknown
 ): InitiatePaymentsPayloadCart | null {
   if (isJSON(rawInput)) {
-    return {
-      ...rawInput
-    };
+    const decodedAdditionalProperties: InitiatePaymentsPayloadCart = {};
+    for (const key in rawInput) {
+      const decodedValue = decodeUnknown(rawInput[key]);
+      decodedAdditionalProperties[key] = decodedValue;
+    }
+    return decodedAdditionalProperties;
   }
   return null;
 }
@@ -134,9 +140,12 @@ export function decodeInitiatePaymentsPayloadCustomer(
   rawInput: unknown
 ): InitiatePaymentsPayloadCustomer | null {
   if (isJSON(rawInput)) {
-    return {
-      ...rawInput
-    };
+    const decodedAdditionalProperties: InitiatePaymentsPayloadCustomer = {};
+    for (const key in rawInput) {
+      const decodedValue = decodeUnknown(rawInput[key]);
+      decodedAdditionalProperties[key] = decodedValue;
+    }
+    return decodedAdditionalProperties;
   }
   return null;
 }
@@ -151,9 +160,32 @@ export function decodeInitiatePaymentsPayloadAddress(
   rawInput: unknown
 ): InitiatePaymentsPayloadAddress | null {
   if (isJSON(rawInput)) {
-    return {
-      ...rawInput
-    };
+    const decodedAdditionalProperties: InitiatePaymentsPayloadAddress = {};
+    for (const key in rawInput) {
+      const decodedValue = decodeUnknown(rawInput[key]);
+      decodedAdditionalProperties[key] = decodedValue;
+    }
+    return decodedAdditionalProperties;
+  }
+  return null;
+}
+
+/**
+ * @type { InitiatePaymentsPayloadAdditionalParams }
+ * @description Additional parameters (e.g. subMerchantId) to pass along with the payment
+ */
+export type InitiatePaymentsPayloadAdditionalParams = Record<string, unknown>;
+
+export function decodeInitiatePaymentsPayloadAdditionalParams(
+  rawInput: unknown
+): InitiatePaymentsPayloadAdditionalParams | null {
+  if (isJSON(rawInput)) {
+    const decodedAdditionalProperties: InitiatePaymentsPayloadAdditionalParams = {};
+    for (const key in rawInput) {
+      const decodedValue = decodeUnknown(rawInput[key]);
+      decodedAdditionalProperties[key] = decodedValue;
+    }
+    return decodedAdditionalProperties;
   }
   return null;
 }

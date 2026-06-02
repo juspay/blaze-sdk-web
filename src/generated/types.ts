@@ -1,4 +1,4 @@
-import { isJSON, decodeString } from 'type-decoder';
+import { isJSON, decodeString, decodeUnknown } from 'type-decoder';
 
 /**
  * @type { Environment }
@@ -15,16 +15,6 @@ export function decodeEnvironment(rawInput: unknown): Environment | null {
       return rawInput;
   }
   return null;
-}
-
-export function _decodeEnvironment(rawInput: unknown): Environment | undefined {
-  switch (rawInput) {
-    case 'beta':
-    case 'release':
-    case 'smbBeta':
-    case 'smbRelease':
-      return rawInput;
-  }
 }
 
 /**
@@ -86,9 +76,12 @@ export type SDKPayloadPayload = Record<string, unknown>;
 
 export function decodeSDKPayloadPayload(rawInput: unknown): SDKPayloadPayload | null {
   if (isJSON(rawInput)) {
-    return {
-      ...rawInput
-    };
+    const decodedAdditionalProperties: SDKPayloadPayload = {};
+    for (const key in rawInput) {
+      const decodedValue = decodeUnknown(rawInput[key]);
+      decodedAdditionalProperties[key] = decodedValue;
+    }
+    return decodedAdditionalProperties;
   }
   return null;
 }
@@ -107,15 +100,6 @@ export function decodeEventName(rawInput: unknown): EventName | null {
       return rawInput;
   }
   return null;
-}
-
-export function _decodeEventName(rawInput: unknown): EventName | undefined {
-  switch (rawInput) {
-    case 'initiate':
-    case 'process':
-    case 'terminate':
-      return rawInput;
-  }
 }
 
 /**
@@ -169,9 +153,12 @@ export type SDKResponsePayload = Record<string, unknown>;
 
 export function decodeSDKResponsePayload(rawInput: unknown): SDKResponsePayload | null {
   if (isJSON(rawInput)) {
-    return {
-      ...rawInput
-    };
+    const decodedAdditionalProperties: SDKResponsePayload = {};
+    for (const key in rawInput) {
+      const decodedValue = decodeUnknown(rawInput[key]);
+      decodedAdditionalProperties[key] = decodedValue;
+    }
+    return decodedAdditionalProperties;
   }
   return null;
 }

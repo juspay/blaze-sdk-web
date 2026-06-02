@@ -37,6 +37,10 @@ Backend:
         type: object
         additionalProperties: true
         description: Address information
+      additionalParams:
+        type: object
+        additionalProperties: true
+        description: Additional parameters (e.g. subMerchantId) to pass along with the payment
     required:
       - cart
 
