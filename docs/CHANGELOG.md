@@ -7,12 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.11)
+## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.12)
 
-- Bump electron version
-- add script tag to load nimble v2
+- Adds an optional additionalParams field to the InitiatePaymentsPayload type, decoder, and backend handler request body.
+
+- BZ-3263: feat: add additionalParams support to initiate payments payload ([](https://juspay.atlassian.net/browse/BZ-3263))
+
+## [0.5.12](https://github.com/juspay/blaze-sdk-web/compare/0.5.12..0.5.11) - 2026-05-19
 
 - BZ-2923: feat: bump electron version and migrate to nimble v2 ([](https://juspay.atlassian.net/browse/BZ-2923))
+- chore(release): 0.5.12 ([1de202e](https://github.com/juspay/blaze-sdk-web/commit/1de202e3a2e86112f24055236387ffa52bcbe9d9))
 
 ## [0.5.11](https://github.com/juspay/blaze-sdk-web/compare/0.5.11..0.5.10) - 2026-05-12
 
