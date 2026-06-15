@@ -7,11 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.12)
+## [Unreleased](https://github.com/juspay/blaze-sdk-web/compare/HEAD..0.5.13)
 
-- Adds an optional additionalParams field to the InitiatePaymentsPayload type, decoder, and backend handler request body.
+- BZ-3784: docs: update backend readme ([](https://juspay.atlassian.net/browse/BZ-3784))
+
+## [0.5.13](https://github.com/juspay/blaze-sdk-web/compare/0.5.13..0.5.12) - 2026-06-04
 
 - BZ-3263: feat: add additionalParams support to initiate payments payload ([](https://juspay.atlassian.net/browse/BZ-3263))
+- chore(release): 0.5.13 ([3920e95](https://github.com/juspay/blaze-sdk-web/commit/3920e9573b3902fd92ed6c9d0fab570aa8270305))
 
 ## [0.5.12](https://github.com/juspay/blaze-sdk-web/compare/0.5.12..0.5.11) - 2026-05-19
 
