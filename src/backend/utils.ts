@@ -1,5 +1,6 @@
 import type { SDKResponse, EventName } from '$generated/types';
 import type { ActionEnum } from '$generated/Backend';
+import { nanoid } from 'nanoid';
 
 export function incorrectPayloadResp(
   requestId: string | null,
@@ -28,4 +29,14 @@ export function toSdkResponse(
       ...data
     }
   };
+}
+
+export function _nanoid(): string {
+  const nanoId = nanoid();
+  const firstChar = nanoId.charAt(0);
+  if (firstChar === '_' || firstChar === '-') {
+    const randomCharacter = String.fromCharCode(97 + Math.floor(Math.random() * 26));
+    return randomCharacter + nanoId.substring(1);
+  }
+  return nanoId;
 }

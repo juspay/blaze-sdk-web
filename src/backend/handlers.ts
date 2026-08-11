@@ -12,7 +12,7 @@ import {
   decodeActionEnum
 } from '$generated/Backend';
 import { environmentUrls, paymentEndpoint } from './constants';
-import { toSdkResponse, incorrectPayloadResp } from './utils';
+import { toSdkResponse, incorrectPayloadResp, _nanoid } from './utils';
 import type { CallbackFn } from '$types';
 import type { NetworkOverrides } from './types';
 
@@ -68,7 +68,8 @@ async function processInitiatePayments(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: token
+        Authorization: token,
+        'X-Session-Id': _nanoid()
       },
       body: JSON.stringify({
         cart: paymentsData.cart,

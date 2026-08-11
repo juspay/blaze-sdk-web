@@ -159,6 +159,7 @@
   },
   "dependencies": {
     "type-decoder": "^2.1.0",
-    "typesafe-api-call": "^5.1.1"
+    "typesafe-api-call": "^5.1.1",
+    "nanoid": "^5.0.4"
   }
 }
