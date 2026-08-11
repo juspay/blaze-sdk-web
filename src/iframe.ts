@@ -29,6 +29,7 @@ function initiate(
     const shopUrl = typeof payloadData.shopUrl === 'string' ? payloadData.shopUrl : null;
     const shopId = typeof payloadData.shopId === 'string' ? payloadData.shopId : null;
     const platform = typeof payloadData.platform === 'string' ? payloadData.platform : null;
+    const presentationMode = payloadData.presentationMode === 'chat-inline' ? 'chat-inline' : null;
 
     let environment: string;
     let scriptSrc: string;
@@ -44,6 +45,7 @@ function initiate(
         environment = payloadData.environment === 'beta' ? 'beta' : 'release';
         break;
     }
+
     script.src = scriptSrc;
 
     if (merchantId !== null) {
@@ -60,6 +62,12 @@ function initiate(
 
     if (platform !== null) {
       script.setAttribute('data-platform', platform);
+    }
+
+    if (presentationMode !== null) {
+      script.setAttribute('data-presentation-mode', presentationMode);
+    } else {
+      script.removeAttribute('data-presentation-mode');
     }
 
     script.setAttribute('data-environment', environment);
