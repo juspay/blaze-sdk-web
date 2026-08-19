@@ -36,11 +36,11 @@ function initiate(
     switch (payloadData.environment) {
       case 'smbBeta':
       case 'smbRelease':
-        scriptSrc = 'https://sdk.breezesdk.store/electron/241.0.3/index.js';
+        scriptSrc = 'https://sdk.breezesdk.store/electron/244.0.1/index.js';
         environment = payloadData.environment === 'smbBeta' ? 'beta' : 'release';
         break;
       default:
-        scriptSrc = 'https://sdk.breeze.in/electron/241.0.3/index.js';
+        scriptSrc = 'https://sdk.breeze.in/electron/244.0.1/index.js';
         environment = payloadData.environment === 'beta' ? 'beta' : 'release';
         break;
     }
