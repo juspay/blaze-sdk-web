@@ -16,7 +16,7 @@ module.exports = {
   },
   parserPreset: {
     parserOpts: {
-      headerPattern: '^(BZ[N]?-\\d+): (\\w*)(?:\\(([\\w\\$\\.\\-\\*\\s]*)\\))?: (.*)$',
+      headerPattern: '^((?:BZ[N]?|BTAC)-\\d+): (\\w*)(?:\\(([\\w\\$\\.\\-\\*\\s]*)\\))?: (.*)$',
       headerCorrespondence: ['ticket', 'type', 'scope', 'subject']
     }
   }
